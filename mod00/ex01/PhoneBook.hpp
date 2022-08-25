@@ -9,11 +9,11 @@ class PhoneBook
 {
 	private:
 		void	_headerprinter(void);
+		Contact	_contacts[8];
+		int		_currnum;
+		int		_overall;
 
 	public:
-		Contact	contacts[8];
-		int		currnum;
-		int		overall;
 
 		PhoneBook(void);
 		~PhoneBook(void);

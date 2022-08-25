@@ -1,9 +1,7 @@
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void)
+PhoneBook::PhoneBook(void) : _currnum(0), _overall(0)
 {
-	this->currnum = 0;
-	this->overall = 0;
 }
 
 PhoneBook::~PhoneBook(void)
@@ -24,15 +22,15 @@ void	PhoneBook::add(void)
 	bool	eof;
 
 	eof = false;
-	eof += addparam(&this->contacts[this->currnum].firstname, "First name: ");
-	eof += addparam(&this->contacts[this->currnum].lastname, "Last name: ");
-	eof += addparam(&this->contacts[this->currnum].nickname, "Nickname: ");
-	eof += addparam(&this->contacts[this->currnum].phone, "Phone number: ");
-	eof += addparam(&this->contacts[this->currnum].deepdarkfantasy, "Deep♂dark♂fantasy: ");
+	eof += addparam(&this->_contacts[this->_currnum].firstname, "First name: ");
+	eof += addparam(&this->_contacts[this->_currnum].lastname, "Last name: ");
+	eof += addparam(&this->_contacts[this->_currnum].nickname, "Nickname: ");
+	eof += addparam(&this->_contacts[this->_currnum].phone, "Phone number: ");
+	eof += addparam(&this->_contacts[this->_currnum].deepdarkfantasy, "Deep♂dark♂fantasy: ");
 	if (eof)
 		return ;
-	this->currnum = ++this->currnum % 8;
-	this->overall += (this->overall < 8);
+	this->_currnum = ++this->_currnum % 8;
+	this->_overall += (this->_overall < 8);
 }
 
 static void	truncedtxt(std::string txt)
@@ -59,13 +57,13 @@ void	PhoneBook::_headerprinter(void)
 	std::cout.fill('-');
 	std::cout << "" << std::endl;
 	std::cout.fill(' ');
-	for (int i = 0; i < this->overall; i++)
+	for (int i = 0; i < this->_overall; i++)
 	{
 		std::cout << std::setw(10);
 		std::cout << i + 1 << "|";
-		truncedtxt(this->contacts[i].firstname);
-		truncedtxt(this->contacts[i].lastname);
-		truncedtxt(this->contacts[i].nickname);
+		truncedtxt(this->_contacts[i].firstname);
+		truncedtxt(this->_contacts[i].lastname);
+		truncedtxt(this->_contacts[i].nickname);
 		std::cout << std::endl;
 	}
 }
@@ -76,7 +74,7 @@ void	PhoneBook::search(void)
 	std::string	buf;
 
 	_headerprinter();
-	if (!this->overall)
+	if (!this->_overall)
 	{
 		std::cout << "Nobody's live in your PhoneBook, my dear... Try to ADD somebody!" << std::endl;
 		return ;
@@ -84,14 +82,14 @@ void	PhoneBook::search(void)
 	std::cout << "Enter his index, boy: ";
 	getline(std::cin, buf);
 	indx = atoi(buf.c_str());
-	if (!(1 <= indx && indx <= this->overall))
+	if (!(1 <= indx && indx <= this->_overall))
 	{
 		std::cout << "Am i joke for you?" << std::endl;
 		return ;
 	}
-	std::cout << "First Name: " + this->contacts[--indx].firstname << std::endl;
-	std::cout << "Last Name: " + this->contacts[indx].lastname << std::endl;
-	std::cout << "Nickname: " + this->contacts[indx].nickname << std::endl;
-	std::cout << "Phone number: " + this->contacts[indx].phone << std::endl;
-	std::cout << "Deep♂dark♂fantasy: " + this->contacts[indx].deepdarkfantasy << std::endl;
+	std::cout << "First Name: " + this->_contacts[--indx].firstname << std::endl;
+	std::cout << "Last Name: " + this->_contacts[indx].lastname << std::endl;
+	std::cout << "Nickname: " + this->_contacts[indx].nickname << std::endl;
+	std::cout << "Phone number: " + this->_contacts[indx].phone << std::endl;
+	std::cout << "Deep♂dark♂fantasy: " + this->_contacts[indx].deepdarkfantasy << std::endl;
 }
