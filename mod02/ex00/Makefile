@@ -4,7 +4,7 @@ OBJS		=	$(SRCS:.cpp=.o)
 
 HEAD		=	./
 
-NAME		=	Harl_2.0
+NAME		=	harlFilter
 
 GCC			=	c++
 
