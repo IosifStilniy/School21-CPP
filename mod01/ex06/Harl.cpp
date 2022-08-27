@@ -38,7 +38,7 @@ void	Harl::_error(void)	const
 	std::cout << "BILIAAAAAAAAAAAAAAAADDDD" << std::endl;
 }
 
-void	Harl::_plakac(int i)	const
+void	Harl::_plakac(int const i)	const
 {
 	std::cout << "[ " << this->_levels[i] << " ]" << std::endl;
 	(this->*(this->_cmpl[i]))();

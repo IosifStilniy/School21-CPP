@@ -11,7 +11,7 @@ class Harl
 		void				_warning(void)			const;
 		void				_error(void)			const;
 		void				(Harl::*_cmpl[4])(void)	const;
-		void				_plakac(int i)			const;
+		void				_plakac(int const i)	const;
 		
 		std::string			_levels[4];
 

@@ -20,7 +20,7 @@ void	filehandler(std::ifstream& in, std::ofstream& out, char **argv)
 	}
 }
 
-void	lineWriter(std::ofstream& out, std::string buf, std::string& ref, std::string &rep)
+void	lineWriter(std::ofstream& out, std::string const & buf, std::string const & ref, std::string const & rep)
 {
 	std::size_t		oldpos = 0;
 	std::size_t		pos = 0;

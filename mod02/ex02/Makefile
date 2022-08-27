@@ -4,7 +4,7 @@ OBJS		=	$(SRCS:.cpp=.o)
 
 HEAD		=	./
 
-NAME		=	canon
+NAME		=	ariphmet
 
 GCC			=	c++
 

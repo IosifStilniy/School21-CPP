@@ -1,7 +1,7 @@
 #include "HumanB.hpp"
 #include <iostream>
 
-HumanB::HumanB(std::string name) : _weapon(nullptr), name(name)
+HumanB::HumanB(std::string const & name) : _weapon(nullptr), name(name)
 {
 }
 
@@ -9,7 +9,7 @@ HumanB::~HumanB()
 {
 }
 
-void	HumanB::setWeapon(Weapon& weapon)
+void	HumanB::setWeapon(Weapon & weapon)
 {
 	this->_weapon = &weapon;
 }
