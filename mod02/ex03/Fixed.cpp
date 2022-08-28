@@ -3,7 +3,7 @@
 #include <cmath>
 
 int const	Fixed::_numFract = 8;
-int const	Fixed::_fractMask = 255;
+int const	Fixed::_fractMask = (1 << Fixed::_numFract) - 1;
 
 Fixed::Fixed(void) : _value(0)
 {
