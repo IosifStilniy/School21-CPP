@@ -48,7 +48,7 @@ DiamondTrap &	DiamondTrap::operator=(DiamondTrap const & rhd)
 
 void	DiamondTrap::whoAmI(void)
 {
-	std::cout << this->_name << "(" << this->ClapTrap::_name << "): What are you did to me, monster..." << std::endl;
+	std::cout << this->_name << "(" << this->ClapTrap::_name << "): What did you done to me, monster..." << std::endl;
 }
 
 void	DiamondTrap::attack(std::string const & target)
