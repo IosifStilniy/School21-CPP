@@ -3,19 +3,17 @@
 
 void	filehandler(std::ifstream& in, std::ofstream& out, char **argv)
 {
-	std::string		outfile;
-
 	in.open(argv[1]);
 	if (!in.good())
 	{
-		std::cout << argv[0] << ": bad input file" << std::endl;
+		std::cerr << argv[0] << ": bad input file" << std::endl;
 		exit(1);
 	}
-	outfile = std::string(argv[1]) + ".replace";
-	out.open(outfile);
+	out.open(std::string(argv[1]) + ".replace");
 	if (!out.good())
 	{
-		std::cout << argv[0] << ": bad output file" << std::endl;
+		in.close();
+		std::cerr << argv[0] << ": bad output file" << std::endl;
 		exit(1);
 	}
 }
@@ -67,5 +65,7 @@ int	main(int argc, char **argv)
 	}
 	filehandler(in, out, argv);
 	writer(in, out, argv);
+	in.close();
+	out.close();
 	return (0);
 }

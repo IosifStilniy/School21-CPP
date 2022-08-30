@@ -1,5 +1,5 @@
-#ifndef CHARACTKER_HPP
-# define CHARACTKER_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
 # include "ICharacter.hpp"
 # include "AMateria.hpp"
