@@ -14,9 +14,14 @@ class Converter
 		bool		_handled;
 		bool		_possibility[4];
 
-		bool		_checkForFloat(bool & isNan, bool & isFloat)	const;
-		bool		_handleFloat(bool isNan, bool isFloat)			const;
-		void		_print(void)									const;
+		std::size_t	_skipSpaces(std::string const & str)		const;
+		bool		_checkForFloat(bool & isNanOrInf, bool & isFloat);
+		bool		_checkForInt(void);
+		bool		_checkForChar(void);
+		void		_handleFloat(bool isNanOrInf, bool isFloat);
+		void		_handleInt(void);
+		void		_handleChar(void);
+		void		_print(void)						const;
 
 	public:
 		Converter(void);

@@ -1,30 +1,18 @@
-#include <iostream>
 #include <string>
-
-int	floatAndDoubleHandler(std::string & buf, bool isNan)
-{
-	if (isNan)
-	{
-		
-	}
-	return (0);
-}
+#include <iostream>
+#include "Converter.hpp"
 
 int	main(int argc, char **argv)
 {
-	std::string	buf;
-	bool		isNan = false;
+	Converter	c;
 
 	if (argc != 2)
 	{
-		std::cout << *argv << ": only 2 args allowed" << std::endl;
+		std::cout << *argv << ": only 1 arg" << std::endl;
 		return (0);
 	}
 
-	buf = static_cast<std::string>(*(++argv));
-	if (buf.find('.') != std::string::npos
-		|| (buf.find("nan", 0) != std::string::npos && (isNan = true)))
-		return (floatAndDoubleHandler(buf, isNan));
-	std::cout << buf << std::endl;
+	c.handleIt(std::string(*(++argv)));
+
 	return (0);
 }
