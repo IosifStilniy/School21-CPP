@@ -30,7 +30,7 @@ void	lineWriter(std::ofstream& out, std::string const & buf, std::string const &
 		out << buf.substr(oldpos, pos - oldpos);
 		if (pos == std::string::npos)
 			break ;
-		pos += rep.length();
+		pos += ref.length();
 		out << rep;
 	}
 }
