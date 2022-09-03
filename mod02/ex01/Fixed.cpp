@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cmath>
 
-int const	_numFract = 8;
+int const	Fixed::_numFract = 8;
 
 Fixed::Fixed(void) : _value(0)
 {

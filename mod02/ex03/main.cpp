@@ -10,6 +10,6 @@ int	main(void)
 	Point	C(-1, 0);
 	Point	dot(0, -0.9);
 
-	std::cout << bsp(A, B, C, dot) << std::endl;
+	std::cout << std::boolalpha << bsp(A, B, C, dot) << std::endl;
 	return (0);
 }
