@@ -63,6 +63,11 @@ int	main(int argc, char **argv)
 		std::cout << argv[0] << ": usage: [filename], [string1], [string2]" << std::endl;
 		return (0);
 	}
+	if (std::string(argv[3]).find('\n') != std::string::npos)
+	{
+		std::cout << argv[0] << ": [string2] can't have '\n'" << std::endl;
+		return (0);
+	}
 	filehandler(in, out, argv);
 	writer(in, out, argv);
 	in.close();
