@@ -43,21 +43,21 @@ unsigned int	Span::shortestSpan(void)	const
 	if (this->_max_size < 2)
 		throw Span::SmallSizeException();
 
-	unsigned int					min = std::numeric_limits<unsigned int>::max();
-	unsigned int					dif;
-	std::list<int>::const_iterator	start = this->_elems->begin();
-	int								left = *start++;
+	this->_elems->sort();
 
+	unsigned int				min = std::numeric_limits<unsigned int>::max();
+	unsigned int				dif;
+	std::list<int>::iterator	prev = this->_elems->begin();
+	std::list<int>::iterator	start = prev;
+
+	start++;
 	for (; start != this->_elems->end(); start++)
 	{
-		dif = *start - left;
-		if (left > *start)
-			dif = left - *start;
-		if (dif < min)
-			min = dif;
-		left = *start;
+		dif = *start > *prev ? *start - *prev : *prev - *start;
+		min = dif < min ? dif : min;
+		prev++;
 	}
-	
+
 	return (min);
 }
 
@@ -66,22 +66,10 @@ unsigned int	Span::longestSpan(void)	const
 	if (this->_max_size < 2)
 		throw Span::SmallSizeException();
 
-	unsigned int					max = 0;
-	unsigned int					dif;
-	std::list<int>::const_iterator	start = this->_elems->begin();
-	int								left = *start++;
+	int	max = *std::max_element(this->_elems->begin(), this->_elems->end());
+	int	min = *std::min_element(this->_elems->begin(), this->_elems->end());
 
-	for (; start != this->_elems->end(); start++)
-	{
-		dif = *start - left;
-		if (left > *start)
-			dif = left - *start;
-		if (dif > max)
-			max = dif;
-		left = *start;
-	}
-
-	return (max);
+	return (max - min);
 }
 
 const char*	Span::ReachedMaxSizeException::what()	const	throw()

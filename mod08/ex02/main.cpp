@@ -19,11 +19,23 @@ int main()
 	MutantStack<int>::iterator ite = mstack.end();
 	++it;
 	--it;
+	std::cout << "forward:" << std::endl;
 	while (it != ite)
 	{
-	std::cout << *it << std::endl;
-	++it;
+		std::cout << *it << std::endl;
+		++it;
 	}
+
+	MutantStack<int>::reverse_iterator rit = mstack.rbegin();
+	MutantStack<int>::reverse_iterator rite = mstack.rend();
+
+	std::cout << std::endl << "bacward:" << std::endl;
+	while (rit != rite)
+	{
+		std::cout << *rit << std::endl;
+		++rit;
+	}
+
 	std::stack<int> s(mstack);
 	return 0;
 }

@@ -1,8 +1,8 @@
 template<typename T>
 int &	easyfind(T & container, int ref)
 {
-	for (typename T::iterator start = container.begin(); start != container.end(); start++)
-		if (*start == ref)
-			return (*start);
+	typename T::iterator	elem = std::find(container.begin(), container.end(), ref);
+	if (elem != container.end())
+		return (*elem);
 	throw std::exception();
 }
