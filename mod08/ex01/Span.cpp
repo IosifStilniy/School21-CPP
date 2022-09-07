@@ -66,10 +66,9 @@ unsigned int	Span::longestSpan(void)	const
 	if (this->_max_size < 2)
 		throw Span::SmallSizeException();
 
-	int	max = *std::max_element(this->_elems->begin(), this->_elems->end());
-	int	min = *std::min_element(this->_elems->begin(), this->_elems->end());
-
-	return (max - min);
+	std::pair<std::list<int>::iterator, std::list<int>::iterator >
+		minmax = std::minmax_element(this->_elems->begin(), this->_elems->end());
+	return (*minmax.second - *minmax.first);
 }
 
 const char*	Span::ReachedMaxSizeException::what()	const	throw()
