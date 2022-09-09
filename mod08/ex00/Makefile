@@ -1,5 +1,7 @@
 SRCS		=	$(wildcard *.cpp)	\
 
+TPP			=	$(wildcard *.tpp)	\
+
 OBJS		=	$(SRCS:.cpp=.o)
 
 HEAD		=	./
@@ -12,7 +14,7 @@ FLAGS		=	-Wall -Werror -Wextra -std=c++98
 
 RM			=	rm -f
 
-%.o:	%.cpp $(wildcard $(HEAD)/*.hpp)
+%.o:	%.cpp $(wildcard $(HEAD)/*.hpp) $(TPP)
 		$(GCC) $(FLAGS) -c $< -o $@ 
 
 $(NAME):	$(HEADS) $(OBJS)

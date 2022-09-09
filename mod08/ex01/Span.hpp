@@ -2,6 +2,8 @@
 # define SPAN_HPP
 
 # include <list>
+# include <algorithm>
+# include <utility>
 
 class Span
 {
@@ -25,6 +27,16 @@ class Span
 		Span &	operator=(Span const & rhd);
 
 		void			addNumber(int num);
+
+		template<class iterator>
+		void			addNumber(iterator first, iterator last)
+		{
+			if (std::distance(first, last) > this->_max_size)
+				throw ReachedMaxSizeException();
+			
+			std::copy(first, last, this->_elems->begin());
+		};
+		
 		unsigned int	shortestSpan(void)	const;
 		unsigned int	longestSpan(void)	const;
 

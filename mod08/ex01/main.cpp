@@ -24,5 +24,12 @@ int main()
 	std::cout << sp1.shortestSpan() << std::endl;
 	std::cout << sp1.longestSpan() << std::endl;
 
+	for (std::list<int>::iterator start = p.begin();
+		start != p.end(); start++)
+			*start = rd();
+	
+	sp1.addNumber(p.begin(), p.end());
+	std::cout << sp1.shortestSpan() << std::endl;
+	std::cout << sp1.longestSpan() << std::endl;
 	return 0;
 }
