@@ -23,7 +23,7 @@ Cat::~Cat()
 Cat &	Cat::operator=(Cat const & rhd)
 {
 	this->type = rhd.type;
-	this->brain = rhd.brain;
+	*this->brain = *rhd.brain;
 	return (*this);
 }
 

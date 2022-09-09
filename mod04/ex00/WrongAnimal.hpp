@@ -11,7 +11,7 @@ protected:
 public:
 	WrongAnimal(void);
 	WrongAnimal(WrongAnimal const & src);
-	~WrongAnimal();
+	virtual ~WrongAnimal();
 
 	WrongAnimal &	operator=(WrongAnimal const & rhd);
 

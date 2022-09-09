@@ -23,7 +23,7 @@ Dog::~Dog()
 Dog &	Dog::operator=(Dog const & rhd)
 {
 	this->type = rhd.type;
-	this->brain = rhd.brain;
+	*this->brain = *rhd.brain;
 	return (*this);
 }
 

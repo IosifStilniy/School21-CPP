@@ -25,12 +25,12 @@ int main()
 		delete animals[i];
 
 	cat.getBrain().ideas[0] = "puk";
-	copycat.getBrain() = cat.getBrain();
+	copycat = cat;
 	std::cout << copycat.getType() << std::endl;
 	std::cout << copycat.getBrain().ideas[0] << std::endl;
 
 	dog.getBrain().ideas[0] = "puk";
-	copydog.getBrain() = dog.getBrain();
+	copydog = dog;
 	std::cout << copydog.getType() << std::endl;
 	std::cout << copydog.getBrain().ideas[0] << std::endl;
 	return 0;
