@@ -45,6 +45,9 @@ FragTrap &	FragTrap::operator=(FragTrap const & rhd)
 
 void	FragTrap::highFivesGuys(void)
 {
+	if (this->_isAlive())
+		return ;
+
 	std::cout << "FragTrap " << this->_name << " request hive fives... Give it to him!" << std::endl;
 }
 

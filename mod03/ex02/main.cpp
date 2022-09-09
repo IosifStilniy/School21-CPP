@@ -14,6 +14,8 @@ int	main(void)
 	bob.guardGate();
 	frag = trap;
 	trap.highFivesGuys();
-	
+	trap.attack("trashcan");
+	trap.takeDamage(1000);
+	trap.beRepaired(1000);
 	return (0);
 }

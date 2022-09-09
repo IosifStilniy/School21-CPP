@@ -24,7 +24,7 @@ DiamondTrap::DiamondTrap(std::string const & name)
 	std::cout << "DiamondTrap parametric constructor called" << std::endl;
 
 	this->_name = name;
-	ClapTrap::_name += "_clap_name";
+	ClapTrap::_name = name + "_clap_name";
 	this->_hp = 100;
 	this->_energy = 50;
 	this->_dmg = 30;
