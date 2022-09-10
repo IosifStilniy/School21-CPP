@@ -19,6 +19,8 @@ int	main(void)
 	std::cout << b[0] << std::endl;
 	std::cout << b[1] << std::endl;
 	std::cout << b[3] << std::endl;
-	b[11];
+	// b[10];
+	b = Array<int>();
+	// std::cout << b[0] << std::endl;
 	return (0);
 }

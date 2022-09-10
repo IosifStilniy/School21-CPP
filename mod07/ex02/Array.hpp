@@ -19,12 +19,6 @@ class Array
 
 		unsigned int	size(void)	const;
 
-		class ZeroLengthException : public std::exception
-		{
-			public:
-				const char*	what(void)	const	throw();
-		};
-
 		class OutOfBoundsException : public std::exception
 		{
 			public:
