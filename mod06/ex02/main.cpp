@@ -13,9 +13,7 @@ class C : public Base {};
 
 Base *	generate(void)
 {
-	std::random_device	rd;
-
-	switch (rd() % 3)
+	switch (std::random_device()() % 3)
 	{
 		case 0:
 			std::cout << "A" << std::endl;

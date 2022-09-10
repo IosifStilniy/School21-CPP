@@ -1,11 +1,11 @@
 #include <iostream>
 
-typedef struct s_data {
+struct Data {
 	float	a;
 	int		b;
 	char	c;
 	double	e;
-}	Data;
+};
 
 uintptr_t	serialize(Data* ptr)
 {
