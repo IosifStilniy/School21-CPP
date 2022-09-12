@@ -31,5 +31,19 @@ int main()
 	sp1.addNumber(p.begin(), p.end());
 	std::cout << sp1.shortestSpan() << std::endl;
 	std::cout << sp1.longestSpan() << std::endl;
+
+	sp = Span();
+	try
+	{
+		sp.addNumber(1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "BLIAD: " << e.what() << '\n';
+	}
+
+	sp = Span(50);
+	sp.addNumber(1);
+
 	return 0;
 }

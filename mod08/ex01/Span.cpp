@@ -1,11 +1,11 @@
 #include <limits>
 #include "Span.hpp"
 
-Span::Span(void) : _max_size(0), _elems(nullptr)
+Span::Span(void) : _max_size(0)
 {
 }
 
-Span::Span(unsigned int max_size) : _max_size(max_size), _elems(new std::list<int>)
+Span::Span(unsigned int max_size) : _max_size(max_size)
 {
 }
 
@@ -16,42 +16,39 @@ Span::Span(Span const & src)
 
 Span::~Span()
 {
-	this->_elems->clear();
-	delete this->_elems;
+	this->_elems.clear();
 }
 
 Span &	Span::operator=(Span const & rhd)
 {
 	this->_max_size = rhd._max_size;
-	this->_elems->clear();
-	delete this->_elems;
-	this->_elems = new std::list<int>(*rhd._elems);
+	this->_elems = std::list<int>(rhd._elems);
 
 	return (*this);
 }
 
 void	Span::addNumber(int num)
 {
-	if (this->_max_size <= this->_elems->size())
+	if (!this->_max_size || this->_max_size <= this->_elems.size())
 		throw Span::ReachedMaxSizeException();
 
-	this->_elems->push_back(num);
+	this->_elems.push_back(num);
 }
 
-unsigned int	Span::shortestSpan(void)	const
+unsigned int	Span::shortestSpan(void)
 {
 	if (this->_max_size < 2)
 		throw Span::SmallSizeException();
 
-	this->_elems->sort();
+	this->_elems.sort();
 
 	unsigned int				min = std::numeric_limits<unsigned int>::max();
 	unsigned int				dif;
-	std::list<int>::iterator	prev = this->_elems->begin();
+	std::list<int>::iterator	prev = this->_elems.begin();
 	std::list<int>::iterator	start = prev;
 
 	start++;
-	for (; start != this->_elems->end(); start++)
+	for (; start != this->_elems.end(); start++)
 	{
 		dif = *start > *prev ? *start - *prev : *prev - *start;
 		min = dif < min ? dif : min;
@@ -61,13 +58,13 @@ unsigned int	Span::shortestSpan(void)	const
 	return (min);
 }
 
-unsigned int	Span::longestSpan(void)	const
+unsigned int	Span::longestSpan(void)
 {
 	if (this->_max_size < 2)
 		throw Span::SmallSizeException();
 
 	std::pair<std::list<int>::iterator, std::list<int>::iterator >
-		minmax = std::minmax_element(this->_elems->begin(), this->_elems->end());
+		minmax = std::minmax_element(this->_elems.begin(), this->_elems.end());
 	return (*minmax.second - *minmax.first);
 }
 
